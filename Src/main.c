@@ -51,12 +51,12 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "lwip.h"
-#include "udpRAW.h"
-#include "tcpRAW.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "udpRAW.h"
+#include "tcpRAW.h"
+#include "http_ssi.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -84,7 +84,6 @@
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 /* USER CODE BEGIN PFP */
-u32_t x,y;
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -122,7 +121,8 @@ int main(void)
   MX_GPIO_Init();
   MX_LWIP_Init();
   /* USER CODE BEGIN 2 */
-  tcp_client_init();
+  http_server_init();
+  // tcp_client_init();
   //udpServer_init();
   /* USER CODE END 2 */
 
@@ -131,6 +131,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
+
     /* USER CODE BEGIN 3 */
     ethernetif_input(&gnetif);
     sys_check_timeouts();
