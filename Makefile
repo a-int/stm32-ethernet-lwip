@@ -36,7 +36,9 @@ BUILD_DIR = build
 ######################################
 # C sources
 C_SOURCES =  \
-Src/udpServerRAW.c \
+Src/tcpClientRAW.c \
+Src/tcpServerRAW.c \
+Src/udpRAW.c \
 Src/main.c \
 Src/lwip.c \
 Src/ethernetif.c \
